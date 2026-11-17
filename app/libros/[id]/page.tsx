@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BotonGuardar from "@/components/BotonGuardar";
 import Portada from "@/components/Portada";
 import { obtenerLibro } from "@/lib/openlibrary";
 
@@ -39,6 +40,18 @@ export default async function DetalleLibroPage({
             <span className="font-bold">Año de publicación: </span>
             {libro.anio ?? "Desconocido"}
           </p>
+
+          <div className="mt-4">
+            <BotonGuardar
+              libro={{
+                id: libro.id,
+                titulo: libro.titulo,
+                autores: libro.autores,
+                anio: libro.anio,
+                portada: libro.portada,
+              }}
+            />
+          </div>
 
           <h2 className="text-lg font-bold mt-4 mb-1">Descripción</h2>
           <p className="whitespace-pre-line">
